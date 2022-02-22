@@ -39,8 +39,7 @@
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
  :aliases
- {
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ {;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; REPL and nREPL connections
 
   ;; Built-in Clojure REPL
@@ -1094,6 +1093,11 @@
                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
+   ;; Adam's extra aliases
+  :ion-dev
+  {:extra-deps {com.datomic/ion-dev {:mvn/version "1.0.298"}}
+   :main-opts ["-m" "datomic.ion.dev"]}
+  ;; end Adam's
 
   #_()} ;; End of alias definitions
 
@@ -1110,8 +1114,12 @@
   ;; Maven Central and Clojars are the canonical repositories for library dependencies
   ;; JCenter is large and fast mirror often accessible behind corporate firewalls
 
-  :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
-              "clojars" {:url "https://repo.clojars.org/"}
+ :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://repo.clojars.org/"}
+
+             ;; ------ Start Adam's
+             "datomic-cloud" {:url "s3://datomic-releases-1fc2183a/maven/releases"}
+             ;; ------ End Adam's
 
              ;; Clojure snapshots
              ;; "sonatype" {:url "https://oss.sonatype.org/content/repositories/snapshots/"}
@@ -1129,6 +1137,5 @@
              ;; Example of local Artifactory repository configuration
              ;; {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
 
-  #_()} ;; End of Library Repositories
-
+             #_()} ;; End of Library Repositories
  }
